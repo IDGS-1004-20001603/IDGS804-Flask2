@@ -27,9 +27,9 @@ def Alumnos():
 def Numeros():
     if(request.method == 'POST'):
         numero = int(request.form.get('txtNumeros'))
-        return render_template('numeros.html', numero = numero)
+        return render_template('numeros.html', numero = numero, oculto = '')
     else:
-        return render_template('numeros.html', numero = 0)
+        return render_template('numeros.html', numero = 0, oculto = 'hidden')
 
 @app.route('/valores', methods=['POST'])
 def valores():
