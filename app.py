@@ -50,7 +50,7 @@ def valores():
         resultado={}
         for clave in conteo:  
             valor=conteo[clave]
-            if valor > 0:
+            if valor > 1:
                 resultado[clave] = valor
 
         return render_template('valores.html', lista = lista, mayor = mayor, menor = menor, promedio = promedio, resultados = resultado)
@@ -59,10 +59,10 @@ def valores():
 def traductor():
     words = forms.WordsForm(request.form)
     palabraEncontrada = ''
-    if(request.method == 'POST' and words.validate()):
+    if(request.method == 'POST'):
         btnGuardar = request.form.get('btnGuardar')
         btnTraducir = request.form.get('btnTraducir')
-        if(btnGuardar == 'Guardar'):    
+        if(btnGuardar == 'Guardar' and words.validate()):    
             file = open('palabras.txt', 'a')
             file.write('\n' + words.spanish.data.upper() + '\n' + words.english.data.upper())
             file.close()
@@ -75,12 +75,18 @@ def traductor():
                 for posicion in range(len(palabras)):
                     if(palabras[posicion] == spanishWord.upper()):
                         palabraEncontrada = palabras[posicion - 1]
+                        break
+                    else:
+                        palabraEncontrada = 'No esta en el diccionario'
             elif(opcion == 'english'):
-                englishWord = request.form.get('txtEnglish')
+                englishWord = request.form.get('txtSpanish')
                 for posicion in range(len(palabras)):
                     if(palabras[posicion] == englishWord.upper()):
                         palabraEncontrada = palabras[posicion + 1]
-                        print(palabraEncontrada)
+                        break
+                    else:
+                        palabraEncontrada = 'No esta en el diccionario'
+            file.close()
 
     return render_template('traductor.html', form = words, palabraEncontrada = palabraEncontrada)
 

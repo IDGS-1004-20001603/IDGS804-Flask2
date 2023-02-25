@@ -23,8 +23,12 @@ class UserForm(Form):
     email = EmailField('Correo')
 
 class WordsForm(Form):
-    spanish = StringField('Spanish')
-    english = StringField('English')
+    spanish = StringField('Spanish', [
+        validators.DataRequired(message = 'El campo es requerido')
+    ])
+    english = StringField('English', [
+        validators.DataRequired(message = 'El campo es requerido')
+    ])
 
 class LoginForm(Form):
     username = StringField('usuario', [
