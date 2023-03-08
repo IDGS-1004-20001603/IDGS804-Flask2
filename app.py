@@ -4,6 +4,7 @@ import forms
 from flask_wtf.csrf import CSRFProtect
 from collections import Counter
 import os
+from controllers import resistance, table
 
 app = Flask(__name__)
 SECRET_KEY = os.urandom(32)
@@ -103,6 +104,36 @@ def cookie():
         response.set_cookie('datos_usuario', datos)
         flash(success_message)
     return response
+
+@app.route('/resistence', methods=['GET', 'POST'])
+def resistence():
+    bands = forms.ResistanceForm(request.form)
+    boton = request.form.get('btnFormulario')
+    ocultar_elemento = 'hidden'
+    ocultarTabla = 'hidden'
+    band1 = ''
+    band2 = ''
+    band3 = ''
+    band4 = ''
+    dataOfResistance = ''
+    tabla_extra = []
+    if(request.method == 'POST'):
+        if(boton == 'Calcular'):
+            dataOfResistance = resistance.calculateDataOfResistence(bands)
+            band1 = resistance.getColorBandOne(bands)
+            band2 = resistance.getColorBandTwo(bands)
+            band3 = resistance.getColorBandThree(bands)
+            band4 = resistance.getColorBandFour(bands)
+            ocultar_elemento = ''
+            table.writeColors(bands)
+        if(boton == 'Mostrar Historial'):
+            arreglo = table.sendColorsToApp()
+            tabla_extra = arreglo
+            ocultarTabla = 'row'
+
+    return render_template('bandas.html', form = bands, ocultar_elemento = ocultar_elemento, band1 = band1,
+                           band2 = band2, band3 = band3, band4 = band4, dataOfResistance = dataOfResistance,
+                           ocultarTabla = ocultarTabla, tabla_extra = tabla_extra)
 
 if __name__ == '__main__':
     csrf.init_app(app)

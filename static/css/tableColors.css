@@ -1,0 +1,59 @@
+.Negro{
+    background-color: black;
+    color: white;
+}
+
+.Café{
+    background-color: brown;
+    color: white;
+}
+
+.Rojo{
+    background-color: red;
+    color: black;
+}
+
+.Naranja{
+    background-color: orange;
+    color: black;
+}
+
+.Amarillo{
+    background-color: yellow;
+    color: black;
+}
+
+.Verde{
+    background-color: green;
+    color: white;
+}
+
+.Azul{
+    background-color: blue;
+    color: white;
+}
+
+.Violeta{
+    background-color: violet;
+    color: black;
+}
+
+.Gris{
+    background-color: gray;
+    color: black;
+}
+
+.Blanco{
+    background-color: white;
+    color: black;
+}
+
+.Dorado{
+    background-color: gold;
+    color: black;
+}
+
+.Plata{
+    background-color: silver;
+    color: black;
+}

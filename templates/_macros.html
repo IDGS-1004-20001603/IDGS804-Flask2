@@ -17,12 +17,38 @@
     </div>
 </div>
 {%if field.errors%}
-    <ul>
-        {%for error in field.errors%}
-            <li style="color: red;">
-                {{error}}
-            </li>
-        {%endfor%}
-    </ul>
+<ul>
+    {%for error in field.errors%}
+    <li style="color: red;">
+        {{error}}
+    </li>
+    {%endfor%}
+</ul>
 {%endif%}
 {% endmacro %}
+
+{%macro cellValues(band1, band2, band3, band4, total, minValue, maxValue)%}
+<tr>
+    <td class="{{band1}}">
+        {{band1}}
+    </td>
+    <td class="{{band2}}">
+        {{band2}}
+    </td>
+    <td class="{{band3}}">
+        {{band3}}
+    </td>
+    <td class="{{band4}}">
+        {{band4}}
+    </td>
+    <td>
+        {{total}}
+    </td>
+    <td>
+        {{minValue}}
+    </td>
+    <td>
+        {{maxValue}}
+    </td>
+</tr>
+{%endmacro%}

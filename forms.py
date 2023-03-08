@@ -39,3 +39,17 @@ class LoginForm(Form):
         validators.DataRequired(message = 'El campo Contrasenia es requerido'),
         validators.length(min = 5, max = 10, message = 'El campo Contrasenia es requerido')
     ])
+
+class ResistanceForm(Form):
+    band1 = SelectField('band1', [
+        validators.DataRequired(message = 'Campo requerido')
+    ])
+    band2 = SelectField('band2', [
+        validators.DataRequired(message = 'Campo requerido')
+    ])
+    band3 = SelectField('band3', [
+        validators.DataRequired(message = 'Campo requerido')
+    ])
+    band4 = SelectField('band4', [
+        validators.DataRequired(message = 'Campo requerido')
+    ])

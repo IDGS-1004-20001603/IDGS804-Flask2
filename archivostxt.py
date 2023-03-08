@@ -15,7 +15,7 @@
 # print(alumnos)
 # f.close()
 
-f = open('alumnos2.txt', 'w')
-f.write('\n' + 'Hola mundo!!')
-f.write('\n' + 'Nuevo Hola mundo!!')
-f.close()
+# f = open('alumnos2.txt', 'w')
+# f.write('\n' + 'Hola mundo!!')
+# f.write('\n' + 'Nuevo Hola mundo!!')
+# f.close()
