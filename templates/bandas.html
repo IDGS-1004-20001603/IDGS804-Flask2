@@ -7,57 +7,57 @@
         <div class="row">
             <select name="band1" id="band1">
                 <option value="N/A" selected disabled>--Selected One--</option>
-                <option value="0">Negro</option>
-                <option value="1">Café</option>
-                <option value="2">Rojo</option>
-                <option value="3">Naranja</option>
-                <option value="4">Amarillo</option>
-                <option value="5">Verde</option>
-                <option value="6">Azul</option>
-                <option value="7">Violeta</option>
-                <option value="8">Gris</option>
-                <option value="9">Blanco</option>
+                <option value="Negro">Negro</option>
+                <option value="Cafe">Café</option>
+                <option value="Rojo">Rojo</option>
+                <option value="Naranja">Naranja</option>
+                <option value="Amarillo">Amarillo</option>
+                <option value="Verde">Verde</option>
+                <option value="Azul">Azul</option>
+                <option value="Violeta">Violeta</option>
+                <option value="Gris">Gris</option>
+                <option value="Blanco">Blanco</option>
             </select>
         </div>
         <br>
         <div class="row">
             <select name="band2" id="band2">
                 <option value="N/A" selected disabled>--Selected One--</option>
-                <option value="0">Negro</option>
-                <option value="1">Café</option>
-                <option value="2">Rojo</option>
-                <option value="3">Naranja</option>
-                <option value="4">Amarillo</option>
-                <option value="5">Verde</option>
-                <option value="6">Azul</option>
-                <option value="7">Violeta</option>
-                <option value="8">Gris</option>
-                <option value="9">Blanco</option>
+                <option value="Negro">Negro</option>
+                <option value="Cafe">Café</option>
+                <option value="Rojo">Rojo</option>
+                <option value="Naranja">Naranja</option>
+                <option value="Amarillo">Amarillo</option>
+                <option value="Verde">Verde</option>
+                <option value="Azul">Azul</option>
+                <option value="Violeta">Violeta</option>
+                <option value="Gris">Gris</option>
+                <option value="Blanco">Blanco</option>
             </select>
         </div>
         <br>
         <div class="row">
             <select name="band3" id="band3">
                 <option value="N/A" selected disabled>--Selected One--</option>
-                <option value="1">Negro</option>
-                <option value="10">Café</option>
-                <option value="100">Rojo</option>
-                <option value="1000">Naranja</option>
-                <option value="10000">Amarillo</option>
-                <option value="100000">Verde</option>
-                <option value="1000000">Azul</option>
-                <option value="10000000">Violeta</option>
-                <option value="100000000">Gris</option>
-                <option value="1000000000">Blanco</option>
+                <option value="Negro">Negro</option>
+                <option value="Café">Café</option>
+                <option value="Rojo">Rojo</option>
+                <option value="Naranja">Naranja</option>
+                <option value="Amarillo">Amarillo</option>
+                <option value="Verde">Verde</option>
+                <option value="Azul">Azul</option>
+                <option value="Violeta">Violeta</option>
+                <option value="Gris">Gris</option>
+                <option value="Blanco">Blanco</option>
             </select>
         </div>
         <br>
         <div class="row">
             <select name="band4" id="band4">
                 <option value="N/A" selected disabled>--Selected One--</option>
-                <option value="2">Rojo</option>5
-                <option value="5">Dorado</option>
-                <option value="10">Plata</option>
+                <option value="Rojo">Rojo</option>
+                <option value="Dorado">Dorado</option>
+                <option value="Plata">Plata</option>
             </select>
         </div>
         <br>
@@ -92,29 +92,10 @@
                 Maximo Valor
             </td>
         </tr>
-        <tr>
-            <td style="background-color: {{band1[1]}}; color: {{band1[2]}};">
-                {{band1[0]}}
-            </td>
-            <td style="background-color: {{band2[1]}}; color: {{band2[2]}};">
-                {{band2[0]}}
-            </td>
-            <td style="background-color: {{band3[1]}}; color: {{band3[2]}};">
-                {{band3[0]}}
-            </td>
-            <td style="background-color: {{band4[1]}}; color: {{band4[2]}};">
-                {{band4[0]}}
-            </td>
-            <td>
-                {{dataOfResistance.total}}
-            </td>
-            <td>
-                {{dataOfResistance.minValue}}
-            </td>
-            <td>
-                {{dataOfResistance.maxValue}}
-            </td>
-        </tr>
+        {%from '_macros.html' import cellValues%}
+        {%for i in table_value_resistance%}
+        {{cellValues(i.band1, i.band2, i.band3, i.band4, i.total, i.minValue, i.maxValue)}}
+        {%endfor%}
     </table>
 </div>
 
